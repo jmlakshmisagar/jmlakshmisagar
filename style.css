@@ -367,7 +367,7 @@
     }
     .skills{
         grid-area: f;
-        padding: 20px 0;
+        padding: 0;
     }
     
     .skills ul {
@@ -730,7 +730,7 @@
     
     }
     .EazyMass{
-    padding: 30px ;
+    padding: 10px ;
     
     background: linear-gradient(141deg, #ececec 0%, #f2f0f0 51%, #efe8e8 75%);
     
@@ -788,7 +788,7 @@
     }
     .ShowCase{
     background: linear-gradient(141deg, #ececec 0%, #f2f0f0 51%, #efe8e8 75%);
-    padding: 30px ;
+    padding: 10px ;
     
     
     }
