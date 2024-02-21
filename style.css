@@ -1,7 +1,7 @@
 
 
 
-@media only screen and (max-width: 1200px){
+@media only screen and (max-width: 1000px){
    
     body{
         background-color: #323232;
@@ -14,7 +14,7 @@
     }
 }
 
-@media only screen and (min-width: 1200px){
+@media only screen and (min-width: 1000px){
 
     *{
         margin: 0;
@@ -181,7 +181,7 @@
     }
     
     
-    @media only screen and (min-width: 1300px){
+    @media only screen and (min-width: 1000px){
         /* Keyframes for sliding in from the left */
     @keyframes slideInLeft {
     0% {
@@ -240,7 +240,7 @@
     }
     
     
-    @media only screen and (max-width: 1300px){
+    @media only screen and (max-width: 1000px){
     
        
         .skills ul li img{
@@ -979,12 +979,7 @@
     
     
     
-    /* Viewport meta tag */
-    
-    /* Media queries for responsive layout */
-    
-    
-    
+  
     
     
 
