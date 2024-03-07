@@ -5,7 +5,7 @@
 
  🌱 currently learning **DSA using Cplusplus**
 
- 👨‍💻 Visit my [Personal Page](https://jmlakshmisagar.github.io/Mine/)
+ 👨‍💻 Visit my **[Personal Page](https://jmlakshmisagar.github.io/Mine/)**
 
  📫 Reach me **jmlakshmisagar@gmail.com**
 
