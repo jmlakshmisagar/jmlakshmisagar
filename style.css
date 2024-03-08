@@ -437,7 +437,7 @@
     
         flex-shrink: 0;
         width: 50vw;
-        height: 130vh;
+        height: 160vh;
         object-fit: cover;
         object-position: center;
         filter: grayscale(0.69) brightness(90%);
