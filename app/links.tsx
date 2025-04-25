@@ -75,10 +75,9 @@ export default function Links() {
       href: "https://drive.google.com/drive/folders/1YGDN4fFEDHPwQp2s2JgAzoylafnoVI6I?usp=sharing", 
       icon: "fa-regular fa-file",
       isResume: true,
-      newTab: false,
+      newTab: true, // Changed to true for better UX
       tooltip: "View my resume",
       size: iconSize
-      
     }
   ];
 
@@ -92,7 +91,7 @@ export default function Links() {
       <ul>
         {links.map((link, index) => (
           <motion.li
-            key={index}
+            key={link.href} // Changed to href for more reliable key
             custom={index}
             variants={linkVariants}
             initial="hidden"
@@ -116,11 +115,13 @@ export default function Links() {
                   width={link.size}
                   height={link.size}
                   className="leetcode-icon"
+                  priority={true}
+                  loading="eager"
                 />
               ) : (
                 <i className={`${link.icon} icon-${link.size}`}></i>
               )}
-              {link.isResume}
+              {link.isResume && <span className="sr-only">Resume</span>}
             </a>
           </motion.li>
         ))}

@@ -3,7 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: 'standalone',
   images: {
-    unoptimized: true,
+    domains: ['jmlakshmisagar.vercel.app'],
+    unoptimized: process.env.NODE_ENV === 'development',
   },
   headers: async () => [
     {
