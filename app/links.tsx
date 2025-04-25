@@ -78,6 +78,7 @@ export default function Links() {
       newTab: false,
       tooltip: "View my resume",
       size: iconSize
+      
     }
   ];
 
