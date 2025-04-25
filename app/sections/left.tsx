@@ -53,44 +53,50 @@ export default function LeftSection({ onClose }: { onClose: () => void }) {
       </motion.button>
       <div className="section-inner">
         <h1 className="section-title fondamento">Selected Projects</h1>
-        <div className="projects-grid">
-          {projects.map((project, index) => (
-            <motion.div 
-              key={index}
-              className={`project-card ${project.type ? `project-${project.type.toLowerCase()}` : ''}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-            >
-              <h2 className='fondamento' style={{fontSize:'24px'}}>{project.title}</h2>
-              {project.client && (
-                <div className="project-badge">{project.client}</div>
-              )}
-              <p>{project.shortDescription}</p>
-              <div className="tech-stack">
-                {project.technologies.map((tech, i) => (
-                  <span key={i} className="tech-tag">{tech}</span>
-                ))}
-              </div>
-              <div className="project-actions">
-                {project.github && (
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link tooltip-wrapper" data-tooltip="View Source Code">
-                    <i className="fa-brands fa-github"></i>
-                  </a>
-                )}
-                {project.document && (
-                  <a href={project.document} target="_blank" rel="noopener noreferrer" className="project-link tooltip-wrapper" data-tooltip="View Documentation">
-                    <i className="fa-regular fa-file-lines"></i>
-                  </a>
-                )}
-                {project.live && (
-                  <a href={project.live} target="_blank" rel="noopener noreferrer" className="project-link tooltip-wrapper" data-tooltip="View Live Demo">
-                    <i className="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                )}
-              </div>
-            </motion.div>
-          ))}
+        <div className="projects-container">
+          <div className="projects-grid">
+            {projects.map((project, index) => (
+              <motion.div 
+                key={index}
+                className={`project-card ${project.type ? `project-${project.type.toLowerCase()}` : ''}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <div className="project-header">
+                  <h2 className='fondamento'>{project.title}</h2>
+                  {project.client && (
+                    <div className="project-badge">{project.client}</div>
+                  )}
+                </div>
+                <p className="project-description">{project.shortDescription}</p>
+                <div className="project-footer">
+                  <div className="tech-stack">
+                    {project.technologies.map((tech, i) => (
+                      <span key={i} className="tech-tag">{tech}</span>
+                    ))}
+                  </div>
+                  <div className="project-actions">
+                    {project.github && (
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link tooltip-wrapper" data-tooltip="View Source Code">
+                        <i className="fa-brands fa-github"></i>
+                      </a>
+                    )}
+                    {project.document && (
+                      <a href={project.document} target="_blank" rel="noopener noreferrer" className="project-link tooltip-wrapper" data-tooltip="View Documentation">
+                        <i className="fa-regular fa-file-lines"></i>
+                      </a>
+                    )}
+                    {project.live && (
+                      <a href={project.live} target="_blank" rel="noopener noreferrer" className="project-link tooltip-wrapper" data-tooltip="View Live Demo">
+                        <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </motion.div>
