@@ -76,7 +76,7 @@ export default function Links() {
       icon: "fa-regular fa-file",
       isResume: true,
       newTab: false,
-      tooltip: "Download my resume",
+      tooltip: "View my resume",
       size: iconSize
     }
   ];
