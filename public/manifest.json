@@ -1,16 +1,21 @@
 {
-    "name": "Portfolio",
-    "short_name": "Portfolio",
-    "description": "Personal Portfolio Website",
+    "name": "Lakshmi Sagar Portfolio",
+    "short_name": "LS Portfolio",
+    "description": "Full Stack Developer Portfolio showcasing projects and skills",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#000000",
+    "background_color": "#1a1a1a",
+    "theme_color": "#bcaaa4",
+    "orientation": "portrait",
     "icons": [
         {
-            "src": "/images/icon.png",
-            "sizes": "192x192",
+            "src": "/icons/icon.png",
+            "sizes": "32x32",
             "type": "image/png"
         }
-    ]
+    ],
+    "scope": "/",
+    "lang": "en",
+    "categories": ["portfolio", "developer", "web"],
+    "display_override": ["standalone", "browser"]
 }

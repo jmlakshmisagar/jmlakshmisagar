@@ -68,7 +68,8 @@
   opacity: 0;
   transform: scale(1.5);
   animation: textZoomOut 1.5s ease forwards;
-  animation-delay: 3.5s; /* Starts after image appears */
+  animation-delay: 3.5s;
+  /* Starts after image appears */
 }
 
 .subtitle {
@@ -83,7 +84,8 @@
   opacity: 0;
   transform: scale(1.5);
   animation: textZoomOut 1.5s ease forwards;
-  animation-delay: 4s; /* Starts after main title */
+  animation-delay: 4s;
+  /* Starts after main title */
 }
 
 .hero {
@@ -107,8 +109,10 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
 }
 
 body::before {
@@ -123,7 +127,8 @@ body::before {
 }
 
 body::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
+  /* Chrome, Safari, Opera */
 }
 
 ul {
@@ -159,12 +164,18 @@ ul li a:hover {
   filter: brightness(0.5) grayscale(60%);
   opacity: 0;
   animation: imageAppear 2s ease forwards;
-  animation-delay: 2s; /* Starts after loading screen */
+  animation-delay: 2s;
+  /* Starts after loading screen */
 }
 
 @keyframes zoomEffect {
-  0% { transform: scale(1.2); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes imageAppear {
@@ -172,6 +183,7 @@ ul li a:hover {
     opacity: 0;
     transform: scale(1.2);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -183,26 +195,36 @@ ul li a:hover {
     opacity: 0;
     transform: scale(1.5);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
 
-* { 
-  cursor: auto; /* Change from 'none' to 'auto' */
+* {
+  cursor: auto;
+  /* Change from 'none' to 'auto' */
 }
 
 @media (hover: none) {
-  * { 
-    cursor: auto; 
+  * {
+    cursor: auto;
   }
 }
 
 @media (max-width: 768px) {
-  .main-title { font-size: 4rem; }
-  .subtitle { font-size: 1.2rem; }
-  ul li a { font-size: 1.5rem; }
+  .main-title {
+    font-size: 4rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  ul li a {
+    font-size: 1.5rem;
+  }
 }
 
 .close-button {
@@ -312,36 +334,37 @@ ul li a:hover {
 
 .project-actions {
   display: flex;
-  gap: 0.75rem;
-  margin-top: 0.75rem;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
-.icon-button {
-  width: 45px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--brown-accent);
-  border-radius: 50%;
+.project-link {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
+  color: var(--brown-accent);
+}
+
+.project-link i {
+  font-size: 1.25rem;
+}
+
+.project-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--brown-accent);
   color: var(--text-primary);
-  font-size: 0.9rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
 }
 
-.icon-button:hover {
-  background: var(--brown-hover);
-  border-color: rgba(188, 170, 164, 0.5);
-  transform: translateY(-2px);
+.project-internship {
+  border-left: 4px solid var(--brown-accent);
 }
 
-.icon-button i {
-  font-size: 1.3rem;
-  background: linear-gradient(90deg, #ffffff, #f1f1f1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
 .section-content {
   position: fixed;
@@ -605,6 +628,85 @@ ul li a:hover {
   transform: translateY(-2px);
 }
 
+.tooltip-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.tooltip-wrapper::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem 1rem;
+  background: rgba(70, 70, 70, 0.9);
+  color: var(--text-primary);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.tooltip-wrapper:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-8px);
+}
+
+.leetcode-icon {
+  filter: invert(1) brightness(100%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.leetcode-icon:hover {
+  filter: invert(1) brightness(100%) contrast(200%);
+  transform: scale(1.1);
+}
+
+/* Tooltip positions for arrows */
+.arrow-wrapper.tooltip-wrapper::before {
+  bottom: auto;
+  right: 100%;
+  left: auto;
+  transform: translateY(-50%);
+}
+
+.arrow-top.tooltip-wrapper::before {
+  top: -30px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+}
+
+.arrow-bottom.tooltip-wrapper::before {
+  bottom: -30px;
+  top: auto;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+}
+
+.arrow-left.tooltip-wrapper::before {
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.arrow-right.tooltip-wrapper::before {
+  right: -30px;
+  left: auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 @media (max-width: 1024px) {
   .section-content {
     padding: 3rem 1.5rem 1.5rem;
@@ -631,4 +733,33 @@ ul li a:hover {
   .experience-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Icon styling */
+.icon-20 {
+  font-size: 2rem;
+}
+
+/* Remove the global icon styling */
+/* Font Awesome icon alignment */
+i[class*="fa-"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Add specific styling for links component icons */
+.center ul li a i[class*="fa-"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  width: 28px;
+  height: 28px;
+}
+
+/* Update LeetCode icon to match size */
+.center ul li a .leetcode-icon {
+  width: 28px !important;
+  height: 28px !important;
 }

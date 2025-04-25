@@ -15,10 +15,30 @@ export default function Arrows() {
   const [selectedSection, setSelectedSection] = useState<string | null>(null);
 
   const arrows = [
-    { direction: 'top', rotation: 270, titleRotation: 0 },
-    { direction: 'right', rotation: 0, titleRotation: -90 },
-    { direction: 'bottom', rotation: 90, titleRotation: 0 },
-    { direction: 'left', rotation: 180, titleRotation: 90 },
+    { 
+      direction: 'right', 
+      rotation: 0, 
+      titleRotation: -90,
+      tooltip: "Explore my technical skills & expertise"
+    },
+    { 
+      direction: 'left', 
+      rotation: 180, 
+      titleRotation: 90,
+      tooltip: "Browse my featured projects"
+    },
+    { 
+      direction: 'bottom', 
+      rotation: 90, 
+      titleRotation: 0,
+      tooltip: "View my professional experience"
+    },
+    { 
+      direction: 'top', 
+      rotation: 270, 
+      titleRotation: 0,
+      tooltip: "Check my educational background"
+    }
   ];
 
   useEffect(() => {
@@ -46,11 +66,12 @@ export default function Arrows() {
   return (
     <>
       <div className="arrows-container">
-        {arrows.map(({ direction, rotation, titleRotation }) => (
+        {arrows.map(({ direction, rotation, tooltip }) => (
           activeArrows.includes(direction) && (
             <motion.div
               key={direction}
-              className={`arrow-wrapper arrow-${direction}`}
+              className={`arrow-wrapper arrow-${direction} tooltip-wrapper`}
+              data-tooltip={tooltip}
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0 }}
@@ -88,10 +109,10 @@ export default function Arrows() {
       </div>
 
       <AnimatePresence mode="wait">
-        {selectedSection === 'top' && <TopSection onClose={handleClose} />}
         {selectedSection === 'right' && <RightSection onClose={handleClose} />}
-        {selectedSection === 'bottom' && <BottomSection onClose={handleClose} />}
         {selectedSection === 'left' && <LeftSection onClose={handleClose} />}
+        {selectedSection === 'bottom' && <BottomSection onClose={handleClose} />}
+        {selectedSection === 'top' && <TopSection onClose={handleClose} />}
       </AnimatePresence>
     </>
   );

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Storage, { STORAGE_KEYS } from './storage';
 
 export default function Links() {
@@ -17,8 +18,7 @@ export default function Links() {
       }
     };
 
-
-    
+    loadVisitedLinks();
   }, []);
 
   const handleLinkClick = (href: string) => {
@@ -40,15 +40,44 @@ export default function Links() {
     })
   };
 
+  const iconSize = 28; // Standardized size for all icons
+
   const links = [
-    { href: "https://github.com/jmlakshmisagar", icon: "fa-brands fa-github", newTab: true },
-    { href: "https://linkedin.com/in/YOUR_USERNAME", icon: "fa-brands fa-linkedin", newTab: true },
-    { href: "mailto:jmlakshmisagar@gmail.com", icon: "fa-solid fa-envelope", newTab: true },
     { 
-      href: "https://drive.google.com/file/d/YOUR_FILE_ID/view", 
+      href: "https://github.com/jmlakshmisagar", 
+      icon: "fa-brands fa-github", 
+      newTab: true,
+      tooltip: "Check out my GitHub repositories",
+      size: iconSize
+    },
+    { 
+      href: "https://linkedin.com/in/lakshmisagar-jm", 
+      icon: "fa-brands fa-linkedin", 
+      newTab: true,
+      tooltip: "Connect with me on LinkedIn",
+      size: iconSize
+    },
+    { 
+      href: "mailto:jmlakshmisagar@gmail.com", 
+      icon: "fa-solid fa-envelope", 
+      newTab: true,
+      tooltip: "Send me an email",
+      size: iconSize
+    },
+    { 
+      href: "https://leetcode.com/jmlakshmisagar/", 
+      icon: "leetcode-icon",
+      newTab: true,
+      tooltip: "View my LeetCode profile",
+      size: iconSize
+    },
+    { 
+      href: "https://drive.google.com/drive/folders/1YGDN4fFEDHPwQp2s2JgAzoylafnoVI6I?usp=sharing", 
       icon: "fa-regular fa-file",
       isResume: true,
-      newTab: false
+      newTab: false,
+      tooltip: "Download my resume",
+      size: iconSize
     }
   ];
 
@@ -75,10 +104,21 @@ export default function Links() {
               href={link.href} 
               target={link.newTab ? "_blank" : "_self"}
               rel={link.newTab ? "noopener noreferrer" : undefined}
-              className={link.isResume ? 'resume-button' : ''}
+              className={`tooltip-wrapper ${link.isResume ? 'resume-button' : ''}`}
               onClick={() => handleLinkClick(link.href)}
+              data-tooltip={link.tooltip}
             >
-              <i className={link.icon}></i>
+              {link.icon === 'leetcode-icon' ? (
+                <Image
+                  src="/images/leetcode-svgrepo-com.svg"
+                  alt="LeetCode"
+                  width={link.size}
+                  height={link.size}
+                  className="leetcode-icon"
+                />
+              ) : (
+                <i className={`${link.icon} icon-${link.size}`}></i>
+              )}
               {link.isResume}
             </a>
           </motion.li>
