@@ -10,6 +10,7 @@
     "generate-favicon": "node scripts/generate-favicon.js"
   },
   "dependencies": {
+    "critters": "^0.0.20",
     "framer-motion": "^12.9.1",
     "next": "15.3.1",
     "react": "^19.0.0",

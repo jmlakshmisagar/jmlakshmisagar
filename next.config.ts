@@ -3,7 +3,11 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: 'standalone',
   images: {
-    domains: ['jmlakshmisagar.vercel.app'],
+    domains: [
+      'jmlakshmisagar.vercel.app',
+      'jmlakshmisagar-git-main-lakshmisagar-j-ms-projects.vercel.app',
+      'jmlakshmisagar-5nrxn7pbs-lakshmisagar-j-ms-projects.vercel.app'
+    ],
     unoptimized: process.env.NODE_ENV === 'development',
   },
   headers: async () => [
@@ -70,7 +74,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   // Enable experimental features
   experimental: {
-    optimizeCss: true,
+    // optimizeCss: true,
     scrollRestoration: true
   }
 };
