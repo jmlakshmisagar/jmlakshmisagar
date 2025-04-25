@@ -22,7 +22,7 @@ export default function LeftSection({ onClose }: { onClose: () => void }) {
     {
       title: "Eazymass - Effortless Weight Tracker V3",
       shortDescription: "Effortless Weight Tracking User-Friendly Interface Valuable Insights and Analytics Responsive Design for Various Devices Secure Login and Signup Functionality",
-      technologies: ["Next.js", "Tailwind CSS", "Firebase"],
+      technologies: ["Next.js", "shadcn UI","Tailwind CSS", "Firebase"],
       github: "https://github.com/jmlakshmisagar/Eazymass",
       live: "https://jmlakshmisagar.github.io/EazymassLive/"
     },

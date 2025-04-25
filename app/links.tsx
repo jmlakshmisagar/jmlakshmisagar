@@ -51,7 +51,7 @@ export default function Links() {
       size: iconSize
     },
     { 
-      href: "https://linkedin.com/in/lakshmisagar-jm", 
+      href: "https://www.linkedin.com/in/jmlakshmisagar/", 
       icon: "fa-brands fa-linkedin", 
       newTab: true,
       tooltip: "Connect with me on LinkedIn",
