@@ -1,5 +1,5 @@
 {
-    "name": "Lakshmi Sagar Portfolio",
+    "name": "Lakshmisagar J M",
     "short_name": "LS Portfolio",
     "description": "Full Stack Developer Portfolio showcasing projects and skills",
     "start_url": "/",
@@ -10,8 +10,8 @@
     "icons": [
         {
             "src": "/icons/icon.png",
-            "sizes": "32x32",
-            "type": "image/png"
+            "sizes": "577x433",
+            "type": "image/any"
         }
     ],
     "scope": "/",

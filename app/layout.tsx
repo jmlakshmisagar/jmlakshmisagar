@@ -4,15 +4,15 @@ import Cursor from './cursor'
 import ServiceWorkerInit from './components/ServiceWorkerInit'
 
 export const metadata: Metadata = {
-  title: 'Lakshmi Sagar JM | Portfolio',
+  title: 'It\'s Mine',
   description: 'Full Stack Developer specializing in modern web technologies',
   keywords: ['full stack', 'developer', 'react', 'node.js', 'typescript'],
-  authors: [{ name: 'Lakshmi Sagar JM' }],
+  authors: [{ name: 'Lakshmisagar J M' }],
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'jmlakshmisagar.vercel.app',
-    siteName: 'jmlakshmisagar.me',
+    siteName: 'jmlakshmisagar.vercel.app',
     title: 'It\'s Mine',
     description: 'Full Stack Developer Portfolio',
     images: [{
@@ -51,9 +51,10 @@ export default function RootLayout({
         <link rel="icon" href="/icons/icon.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/icons/icon.png" />
         <meta name="theme-color" content="#bcaaa4" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
       </head>
       <body>
         <ServiceWorkerInit />
