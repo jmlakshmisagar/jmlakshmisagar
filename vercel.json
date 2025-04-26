@@ -1,21 +1,35 @@
 {
-  "version": 4,
-  "buildCommand": "npm run build",
+  "version": 5,
+  "buildCommand": "next build",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "nextjs",
-  "regions": ["iad1"],
-  "public": false,
+  "regions": [
+    "iad1"
+  ],
+  "public": true,
+  "outputDirectory": "build",
   "cleanUrls": true,
   "images": {
-    "sizes": [256, 384, 640, 750, 828, 1080, 1200],
+    "sizes": [
+      256,
+      384,
+      640,
+      750,
+      828,
+      1080,
+      1200
+    ],
     "minimumCacheTTL": 60
   },
   "github": {
     "silent": true
   },
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
   ],
   "headers": [
     {
