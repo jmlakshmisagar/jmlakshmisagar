@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "next run build",
+  "buildCommand": "npm run build",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "nextjs",
@@ -8,8 +8,6 @@
     "iad1"
   ],
   "public": false,
-  "alias": "portfolio",
-  "outputDirectory": "build",
   "cleanUrls": true,
   "images": {
     "sizes": [
@@ -26,12 +24,6 @@
   "github": {
     "silent": true
   },
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/"
-    }
-  ],
   "headers": [
     {
       "source": "/images/(.*)",
