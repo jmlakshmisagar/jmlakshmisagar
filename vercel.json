@@ -1,13 +1,14 @@
 {
   "version": 2,
-  "buildCommand": "next build",
+  "buildCommand": "next run build",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "nextjs",
   "regions": [
     "iad1"
   ],
-  "public": true,
+  "public": false,
+  "alias": "portfolio",
   "outputDirectory": "build",
   "cleanUrls": true,
   "images": {
