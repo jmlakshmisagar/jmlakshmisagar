@@ -1,14 +1,13 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   output: 'standalone',
   images: {
     domains: [
       'jmlakshmisagar.vercel.app',
-      'jmlakshmisagar-git-main-lakshmisagar-j-ms-projects.vercel.app',
-      'jmlakshmisagar-5nrxn7pbs-lakshmisagar-j-ms-projects.vercel.app'
     ],
     unoptimized: process.env.NODE_ENV === 'development',
+    deviceSizes: [640, 750, 828, 1080, 1200],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384]
   },
   headers: async () => [
     {
@@ -34,6 +33,15 @@ const nextConfig: NextConfig = {
       ]
     },
     {
+      source: '/_next/static/:path*',
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'public, max-age=31536000, immutable'
+        }
+      ]
+    },
+    {
       source: '/:path*',
       headers: [
         {
@@ -52,6 +60,7 @@ const nextConfig: NextConfig = {
     }
   ],
   webpack: (config, { isServer, dev }) => {
+    // Client-side polyfills
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
@@ -59,24 +68,22 @@ const nextConfig: NextConfig = {
       };
     }
 
-    // Enable source maps in development
+    // Development source maps
     if (dev) {
       config.devtool = 'source-map';
     }
 
     return config;
   },
-  // Enable compression
+  // Performance optimizations
   compress: true,
-  // Add powered by header
   poweredByHeader: false,
-  // Enable React strict mode
   reactStrictMode: true,
-  // Enable experimental features
+  swcMinify: true,
   experimental: {
-    // optimizeCss: true,
-    scrollRestoration: true
+    scrollRestoration: true,
+    optimizeCss: true
   }
 };
 
-export default nextConfig;
+module.exports = nextConfig;
