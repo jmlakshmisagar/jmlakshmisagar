@@ -3,7 +3,7 @@ name: Deploy Next.js App
 on:
   push:
     branches:
-      - main 
+      - main
 
 permissions:
   contents: write
@@ -26,6 +26,9 @@ jobs:
 
       - name: Build project
         run: npm run build
+
+      - name: Export static site
+        run: npm run export
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
